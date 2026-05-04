@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>Film Stamp</title>
+
+  <meta name="theme-color" content="#111111">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Film Stamp">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="app">
+
+  <header class="header">
+    <p class="eyebrow">RETRO PHOTO TOOL</p>
+    <h1>Film Stamp</h1>
+  </header>
+
+  <main class="card">
+
+    <label class="upload-box">
+      <input type="file" id="photos" multiple accept="image/*">
+      <span class="upload-icon">＋</span>
+      <span class="upload-title">写真を選択</span>
+      <span class="upload-sub">複数選択OK</span>
+    </label>
+
+    <div id="preview" class="preview"></div>
+
+    <label class="field">
+      <span>日付</span>
+      <input type="date" id="date">
+    </label>
+
+    <label class="field">
+      <span>表示形式</span>
+      <select id="format">
+        <option value="film">5   2 '26</option>
+        <option value="dot">2026.05.02</option>
+        <option value="short">26   5   2</option>
+      </select>
+    </label>
+
+    <button id="btn" class="main-btn">タイムスタンプを入れる</button>
+
+    <p id="status" class="status"></p>
+
+    <section id="resultArea" class="result-area hidden">
+      <h2>完成画像</h2>
+      <p class="hint">iPhoneは画像を長押しで保存できます</p>
+      <div id="result" class="result-grid"></div>
+    </section>
+
+  </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
